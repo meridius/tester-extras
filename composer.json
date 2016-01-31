@@ -1,0 +1,33 @@
+{
+	"name": "meridius/tester-extras",
+	"type": "library",
+	"description": "Collection of classes intended to ease testing with Nette/Tester based on Kdyby/TesterExtras",
+	"keywords": ["nette", "database", "testing", "tester", "integration", "concurrent"],
+	"homepage": "https://github.com/meridius/tester-extras",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Martin Lukeš",
+			"homepage": "https://github.com/meridius/tester-extras"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/meridius/tester-extras/issues"
+	},
+	"replace": {
+		"meridius/database-tester": "*"
+	},
+	"require": {
+		"nette/tester": "^1.6",
+		"nette/di": "^2.3",
+		"nette/bootstrap": "^2.3",
+		"nette/robot-loader": "^2.3",
+		"tracy/tracy": "^2.3",
+		"nette/database": "v2.3.8"
+	},
+	"autoload": {
+		"psr-0": {
+			"Meridius\\TesterExtras\\": "src/"
+		}
+	}
+}

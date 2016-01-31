@@ -1,0 +1,5 @@
+parameters:
+	myParam: 'mymy'
+
+services:
+	- MeridiusTests\TesterExtras\Helper(%myParam%)
