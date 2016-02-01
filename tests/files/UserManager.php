@@ -13,9 +13,9 @@ class UserManager extends Object {
 	public function __construct(Context $db) {
 		$this->db = $db;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param int $id
 	 * @return \Nette\Database\IRow|false
 	 */
@@ -24,5 +24,5 @@ class UserManager extends Object {
 				'id' => $id,
 			])->fetch();
 	}
-	
+
 }

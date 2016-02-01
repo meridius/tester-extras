@@ -29,7 +29,7 @@ class IntegrationTest extends AbstractIntegrationTestCase {
 	public function testMyParam() {
 		$param = $this->helper->getMyParam();
 		Assert::type('string', $param);
-		Assert::same('mymy', $param); 
+		Assert::same('mymy', $param);
 	}
 
 }
