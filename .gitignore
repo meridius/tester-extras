@@ -1,3 +1,5 @@
 vendor
 composer.lock
-nbproject/private
+/nbproject/private/
+/tests/**/output
+build/*

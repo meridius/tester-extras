@@ -2,6 +2,7 @@
 
 namespace Meridius\TesterExtras;
 
+use LogicException;
 use Nette\Database\Connection;
 use Nette\DI\Container;
 
@@ -20,19 +21,19 @@ trait NetteDatabaseSetupTrait {
 	 *
 	 * @param string[] $configs
 	 * @return Container
-	 * @throws \LogicException
+	 * @throws LogicException
 	 */
 	protected function createContainer(array $configs = []) {
 		$container = $this->parentCreateContainer($configs);
 
-		/** @var Connection $db */
+		/* @var Connection $db */
 		$db = $container->getByType(Connection::class);
 		if (!$db instanceof Connection) {
-			throw new \LogicException("Connection service should be instance of " . Connection::class);
+			throw new LogicException('Connection service should be instance of ' . Connection::class);
 		}
 
 		$db->onConnect[] = function (Connection $db) use ($container) {
-			if ($this->databaseName !== NULL) {
+			if ($this->databaseName !== null) {
 				return;
 			}
 			$this->setupDatabase($db);

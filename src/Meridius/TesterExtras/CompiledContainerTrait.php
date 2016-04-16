@@ -5,7 +5,6 @@ namespace Meridius\TesterExtras;
 use Nette\Configurator;
 use Nette\DI\Container;
 use Nette\Http\Session;
-use const TEMP_DIR;
 
 trait CompiledContainerTrait {
 
@@ -28,7 +27,7 @@ trait CompiledContainerTrait {
 	 * @return bool
 	 */
 	protected function isContainerCreated() {
-		return $this->container !== NULL;
+		return $this->container !== null;
 	}
 
 	/**
@@ -64,13 +63,10 @@ trait CompiledContainerTrait {
 		return $config;
 	}
 
-	/**
-	 * @todo there seems to be no Nette\DI\Container::initialize
-	 */
 	protected function refreshContainer() {
 		$container = $this->getContainer();
 
-		/** @var Session $session */
+		/* @var Session $session */
 		$session = $container->getByType('Nette\Http\Session');
 		if ($session && $session->isStarted()) {
 			$session->close();
@@ -85,18 +81,18 @@ trait CompiledContainerTrait {
 	 */
 	protected function tearDownContainer() {
 		if ($this->container) {
-			/** @var Session $session */
+			/* @var $session Session */
 			$session = $this->getContainer()->getByType('Nette\Http\Session');
 			if ($session->isStarted()) {
 				$session->destroy();
 			}
 
-			$this->container = NULL;
+			$this->container = null;
 
-			return TRUE;
+			return true;
 		}
 
-		return FALSE;
+		return false;
 	}
 
 	/**
@@ -105,7 +101,7 @@ trait CompiledContainerTrait {
 	 */
 	protected function getService($type) {
 		$container = $this->getContainer();
-		$object = $container->getByType($type, FALSE);
+		$object = $container->getByType($type, false);
 		return $object ?: $container->createInstance($type);
 	}
 
